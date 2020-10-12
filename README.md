@@ -62,7 +62,7 @@ The data-speed attribute will set the transition speed of the animations in mill
 
 If the data-oneway attribute is set to 'true' the animation will stick once the scroll position has been reached. If set to 'false' JavaScript will remove the 'animated' class and the animation will fire (in reverse) when user scrolls upward past the element.
 
-### EXAMPLE
+### FADE-IN
 
 Try out these examples:
 ```html
