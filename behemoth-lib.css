@@ -93,6 +93,11 @@ nav.b-nav.dark li a:hover {
     color: var(--main-font-color-hover);
 }
 
+.b-hero {
+    width: 100%;
+    min-height: 350px;
+}
+
 .b-container.large {
     max-width: 960px;
     background-color: var(--main-bg-color);
@@ -105,7 +110,6 @@ nav.b-nav.dark li a:hover {
 main.b-main {
    box-sizing: border-box;
    padding: 15px;
-   margin-top: 58px;
 }
 
 footer.b-footer {
@@ -315,8 +319,6 @@ img.parallax {
     -ms-transform: scale(.95);
     -o-transform: scale(.95);
 }
-
-/* SLIDER */
 
 /* MODALS */
 .b-close-svg {
@@ -569,7 +571,7 @@ img.parallax {
 .b-btn.blue {
     background-color: transparent;
     border: 2px solid #264DEB;
-    color: #264DEB;    
+    color: #264DEB;
 }
 
 .b-btn.blue:hover {
@@ -592,7 +594,7 @@ img.parallax {
 .b-btn.green {
     background-color: transparent;
     border: 2px solid #27D659;
-    color: #27D659;    
+    color: #27D659;
 }
 
 .b-btn.green:hover {
@@ -615,7 +617,7 @@ img.parallax {
 .b-btn.red {
     background-color: transparent;
     border: 2px solid #E04947;
-    color: #E04947;    
+    color: #E04947;
 }
 
 .b-btn.red:hover {
@@ -638,7 +640,7 @@ img.parallax {
 .b-btn.orange {
     background-color: transparent;
     border: 2px solid #F0922F;
-    color: #F0922F;    
+    color: #F0922F;
 }
 
 .b-btn.orange:hover {
@@ -661,7 +663,7 @@ img.parallax {
 .b-btn.purple {
     background-color: transparent;
     border: 2px solid #A751D6;
-    color: #A751D6;    
+    color: #A751D6;
 }
 
 .b-btn.purple:hover {
@@ -872,10 +874,12 @@ img.parallax {
     top: 0;
     left: 0;
     opacity: 0;
+    z-index: 1;
 }
 
 .b-tab.active {
     opacity: 1;
+    z-index: 2;
 }
 
 /* FORMS */
@@ -902,7 +906,7 @@ input[type='month'].b-input {
     -o-border-radius: 5px;
 }
 
-input[type='button'].b-input, 
+input[type='button'].b-input,
 input[type='submit'].b-input {
     padding: 8px 12px;
     border-radius: 0;
@@ -978,6 +982,12 @@ textarea.b-input {
     width: calc(33.3333333333% - 10px);
 }
 
+.b-form-group .b-input.two-thirds,
+.b-form-group input[type='button'].b-input.two-thirds,
+.b-form-group input[type='submit'].b-input.two-thirds {
+    width: calc(66.6666666666% - 10px);
+}
+
 .b-form-group .b-input.quarter,
 .b-form-group input[type='button'].b-input.quarter,
 .b-form-group input[type='submit'].b-input.quarter {
@@ -993,11 +1003,23 @@ textarea.b-input {
 .b-form-group .b-input.three-eighths,
 .b-form-group input[type='button'].b-input.three-eighths,
 .b-form-group input[type='submit'].b-input.three-eighths  {
-    width: calc(37.5% - 10px);    
+    width: calc(37.5% - 10px);
+}
+
+.b-form-group .b-input.five-eighths,
+.b-form-group input[type='button'].b-input.five-eighths,
+.b-form-group input[type='submit'].b-input.five-eighths  {
+    width: calc(62.5% - 10px);
 }
 
 .b-form-group .b-input.three-quarters,
 .b-form-group input[type='button'].b-input.three-quarters,
 .b-form-group input[type='submit'].b-input.three-quarters {
     width: calc(75% - 10px);
+}
+
+.b-form-group .b-input.seven-eighths,
+.b-form-group input[type='button'].b-input.seven-eighths,
+.b-form-group input[type='submit'].b-input.seven-eighths  {
+    width: calc(87.5% - 10px);
 }

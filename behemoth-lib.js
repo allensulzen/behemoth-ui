@@ -2,12 +2,12 @@
  * BEHEMOTH JAVASCRIPT FRAMEWORK
  * This library is a grouping of useful functions that work
  * across all browsers and are written with minimal, vanilla
- * JavaScript. It is extensible and free to use, and we're 
- * updating it all the time. It was written in July 2020 by 
- * Allen Sulzen, founder of HoosierCoders (https://hoosiercoders.com). 
- * 
+ * JavaScript. It is extensible, free to use, and we're
+ * updating it all the time. It was written in July 2020 by
+ * Allen Sulzen, founder of HoosierCoders (https://hoosiercoders.com).
+ *
  * CONTENTS
- * 
+ *
  * #GENERAL FUNCTIONS
  * #PARALLAX
  * #ANIMATIONS
@@ -31,8 +31,6 @@
  *  ##Dropdown
  *  ##Inputs
  * #ROUTER
- * #DOM LOOPER
- * #SUB LANGUAGE/TEMPLATES
  */
 
 // #GENERAL FUNCTIONS
@@ -46,18 +44,20 @@ function b(arg) {
 }
 
 // this loops through the entire DOM touching each element, bulk operations can be done, for use later in sub-language and templating
-function domLoop() {
-    for (i = 0; i < b('*').length; i++) {
-        if (b('*')[i].tagName == "H2") {
-            b('*')[i].innerHTML = "TEST HEADING";
+function domLoop(tagType, func) {
+    b('*').forEach((element) => {
+        if (element.tagName == tagType) {
+            func(element);
         }
-    }
+    });
 }
+
+// example of domLoop in practice: domLoop('H2', (element) => { element.innerText = "TITLE HAS BEEN CHANGED!"; });
 
 // this scrolls to the ID clicked, set on anchor with onclick attribute
 function scrollToID(arg) {
-    b(arg).scrollIntoView({ 
-        behavior: 'smooth' 
+    b(arg).scrollIntoView({
+        behavior: 'smooth'
     });
 }
 
@@ -181,10 +181,6 @@ animator.init();
                         halfDelta: Math.abs(this.imageElements[i].offsetHeight - imgOriginal.height)/2,
                         elType: this.imageElements[i].nodeName,
                     });
-                    console.log(imgOriginal.width + " " + imgOriginal.height);
-                    if (parallax.images[i].originalAspect > parallax.images[i].elAspect) {
-                        console.log('parallax image #' + (i + 1) + ' aspect ratio prevents parallax behaviour');
-                    }
                 }
             }
         },
@@ -249,9 +245,9 @@ animator.init();
 class Hamburger {
     toggle() {
         if (this.status === true) {
-            this.status = false; 
+            this.status = false;
         } else {
-            this.status = true;             
+            this.status = true;
         }
     }
     constructor (el) {
@@ -312,7 +308,7 @@ function bShowModal(modalId) {
         b('.b-modal').innerHTML = `<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" class="b-close-svg" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512"><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg>
 ` + b('.b-modal').innerHTML;
         b('.b-modal svg').addEventListener('click', function() {
-            b('.b-modal').classList.remove('active');                
+            b('.b-modal').classList.remove('active');
         });
     } else if (b('.b-modal').length > 0) {
         for (i = 0; i < b('.b-modal').length; i++) {
@@ -320,20 +316,19 @@ function bShowModal(modalId) {
 ` + b('.b-modal')[i].innerHTML;
         b('.b-modal')[i].childNodes[0].addEventListener('click', function() {
                 for (i = 0; i < b('.b-modal').length; i++) {
-                    b('.b-modal')[i].classList.remove('active');       
+                    b('.b-modal')[i].classList.remove('active');
                 }
             });
-        }     
+        }
     }
 })();
 
 /* ACCORDIONS */
 function bAccordionToggle(el) {
-    console.log(el);
     if (el.classList.contains('open')) {
         el.classList.remove('open');
     } else {
-        el.classList.add('open');       
+        el.classList.add('open');
     }
 }
 
